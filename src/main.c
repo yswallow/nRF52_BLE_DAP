@@ -89,8 +89,6 @@
 #include "app_usbd_hid_kbd_desc.h"
 #include "usb_hiddevice.h"
 #include "nrf_usbd.h"
-#else
-#include "dummy_hid.h"
 #endif // NRF52840_XXAA
 
 #include "ble_setting.h"
@@ -268,11 +266,7 @@ int main(void)
 
     usb_hid_raw_init();
 #endif
-/*
-    app_usbd_class_inst_t const * class_cdc_acm = app_usbd_cdc_acm_class_inst_get(&m_app_cdc_acm);
-    ret = app_usbd_class_append(class_cdc_acm);
-    APP_ERROR_CHECK(ret);
-*/
+
     ble_device_init();
     NRF_LOG_DEBUG_FLUSH("BLE INIT");
     power_management_init();

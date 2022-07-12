@@ -43,21 +43,17 @@ static void on_hid_rep_char_write(ble_hids_evt_t * p_evt)
     {
         ret_code_t err_code;
         uint8_t  report_val[RAW_REP_SIZE+1];
-        uint8_t report_index = p_evt->params.char_write.char_id.rep_index;
-        switch(report_index) {
-        case 0:
-            err_code = ble_hids_outp_rep_get(&m_hids,
-                                                0,
-                                                RAW_REP_SIZE+1,
-                                                0,
-                                                m_conn_handle,
-                                                report_val);
-            APP_ERROR_CHECK(err_code);
-            NRF_LOG_INFO("RAW_OUTPUT:");
-            NRF_LOG_HEXDUMP_INFO(report_val, RAW_REP_SIZE+1);
-            raw_hid_receive(report_val+1, RAW_REP_SIZE);
-            break;
-        }
+
+        err_code = ble_hids_outp_rep_get(&m_hids,
+                                            0,
+                                            RAW_REP_SIZE+1,
+                                            0,
+                                            m_conn_handle,
+                                            report_val);
+        APP_ERROR_CHECK(err_code);
+        NRF_LOG_INFO("RAW_OUTPUT:");
+        NRF_LOG_HEXDUMP_INFO(report_val, RAW_REP_SIZE+1);
+        raw_hid_receive(report_val+1, RAW_REP_SIZE);
     }
 }
 
