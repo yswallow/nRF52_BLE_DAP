@@ -1,0 +1,11 @@
+.*
+!.keep
+!.gitignore
+ses/Output/*
+*.jlink
+*.emSession
+*.uf2
+*.zip
+armgcc/Makefile.posix
+armgcc/build/*
+

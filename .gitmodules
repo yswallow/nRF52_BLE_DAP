@@ -1,0 +1,6 @@
+[submodule "uf2"]
+	path = lib/uf2
+	url = https://github.com/microsoft/uf2.git
+[submodule "lib/uf2"]
+	path = lib/uf2
+	url = https://github.com/microsoft/uf2.git
